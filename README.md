@@ -32,7 +32,7 @@ FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析
 
 ### 方式一：Windows 一键启动（推荐）
 
-1. 安装 [Python 3.10+](https://www.python.org/downloads/) 与 [Graphviz](https://graphviz.org/download/)（安装时勾选"Add to PATH"）
+1. 安装 [Python 3.10+](https://www.python.org/downloads/)（国内可用镜像加速下载，如华为云、阿里云的 Python 镜像）与 [Graphviz](https://graphviz.org/download/)（安装时勾选"Add to PATH"）
 2. 双击运行 `启动FTA编辑器.bat`
 3. 首次使用前请先安装依赖：`pip install -r requirements.txt`
 
@@ -53,7 +53,7 @@ python src/FTA_Editor_UI.py
 ### 环境要求
 
 - Python 3.10+
-- Graphviz（从 [graphviz.org](https://graphviz.org/download/) 下载安装）
+- Graphviz（从 [graphviz.org](https://graphviz.org/download/) 下载安装；安装时勾选"Add to PATH"，官网访问慢可稍后重试）
 - Python 依赖见 `requirements.txt`
 
 ## AI 助手配置（可选）

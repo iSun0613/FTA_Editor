@@ -6,7 +6,7 @@
 
 ## 1. 安装
 
-**环境要求：** Python 3.10+ 和 [Graphviz](https://graphviz.org/download/)
+**环境要求：** Python 3.10+ 和 [Graphviz](https://graphviz.org/download/)（Windows 安装时请勾选 **Add to PATH**，否则程序可能无法调用绘图命令；Python 官网下载较慢时可使用国内镜像加速下载）
 
 ```bash
 # 克隆并安装
@@ -35,7 +35,7 @@ python src/FTA_Editor_UI.py
 1. **创建节点**：选中根节点，点击"添加节点"
 2. **设置概率**：编辑节点，输入概率（0-1）
 3. **设置逻辑门**：为非叶节点选择与门（AND）或或门（OR）
-4. **选择模式**：FTA（故障分析）或 ETA（事件序列）
+4. **选择模式**：FTA（故障树分析）或 ETA（事件树分析）
 5. **查看图形**：逻辑门直接显示在节点框中
 6. **导出**：保存为 JSON / Excel / XML 或渲染图形
 
@@ -45,23 +45,32 @@ python src/FTA_Editor_UI.py
 
 ## AI 助手配置（可选）
 
-AI 助手可以分析你的故障树并提出改进建议。
+AI 助手可以分析你的故障树并提出改进建议。优先推荐国内服务商，无需科学上网、按量计费更友好：
 
-1. 从 [OpenAI Platform](https://platform.openai.com/) 获取 API 密钥
-2. 在 AI 助手面板点击 ⚙（设置）
-3. 输入 API 密钥，点击"测试并保存"
+1. **DeepSeek（推荐）**：前往 https://platform.deepseek.com 注册并获取 API 密钥，模型可选 `deepseek-v4-flash` / `deepseek-v4-pro`。
+2. **通义千问（阿里云）**：前往 https://dashscope.console.aliyun.com 开通，模型可选 `qwen3.8-max` / `qwen3.8-flash` / `qwen3.7-plus`。
+3. **智谱清言**：前往 https://open.bigmodel.cn 开通，模型可选 `glm-5.3` / `glm-5.3-flash` / `glm-4.7-flash`。
+4. **Kimi（月之暗面）**：前往 https://platform.moonshot.cn 开通，模型可选 `kimi-k3` / `kimi-k2.6`（temperature 由程序自动适应，无需额外配置）。
+5. **Ollama 本地（免密钥）**：需在电脑上执行 `ollama pull qwen3:8b`（或其他模型，如 `llama3.3:70b`、`qwen2.5`）拉取模型后即可离线使用。
+6. （备选）国际服务商：OpenAI、Anthropic Claude、Google Gemini、Microsoft Copilot（Azure OpenAI 兼容）。其中 Gemini / OpenAI / Claude 对国内访问可能受限，建议优先选择上述国内服务商。
+
+配置入口为 FTA Editor 的「AI 设置（⚙）」：
+
+1. 在 AI 助手面板点击 ⚙（设置）
+2. 选择服务商（Provider），输入对应的 API 密钥（Ollama 本地免密钥）
+3. 点击"测试并保存"
 4. 开始对话！可提问或使用快捷操作
 
 API 密钥保存在本地 `~/.fta_editor/ai_credentials.json`，绝不会进入仓库。
 
-详细配置见 [README.md](README.md#ai-助手配置可选)。
+详细配置见 [README.md](README.md#ai-助手配置可选) 与 [docs/QUICK_AI_SETUP.md](docs/QUICK_AI_SETUP.md)。
 
 ## v1.5.1 更新内容
 
 - ✅ **更新故障树按钮**：AI 返回完整 JSON，经校验后应用，可一步完成深层（多级）添加
 - ✅ **健壮的 JSON 校验**：无效输出会被拒绝，并给出精确错误日志与问题定位
 - ✅ **更深层的树**：界面支持任意嵌套深度，带自适应配色
-- ✅ **多服务商 AI**：支持 OpenAI、Claude、Gemini，动态模型列表
+- ✅ **多服务商 AI**：支持 DeepSeek、通义千问、智谱清言、Kimi、Ollama 本地等国内服务商，以及 OpenAI、Claude、Gemini 等国际服务商，动态模型列表
 
 ## 键盘快捷键
 
@@ -78,5 +87,5 @@ API 密钥保存在本地 `~/.fta_editor/ai_credentials.json`，绝不会进入�
 
 - 加载示例：`data/examples/sampleFTA.json`
 - 文档：`docs/USER_GUIDE.md`
-- AI 配置：见 [README.md](README.md#ai-助手配置可选)
+- AI 配置：见 [README.md](README.md#ai-助手配置可选) 与 [docs/QUICK_AI_SETUP.md](docs/QUICK_AI_SETUP.md)
 - 测试安装：`python -m pytest tests/`

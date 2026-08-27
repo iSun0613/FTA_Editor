@@ -1,406 +1,431 @@
-# FTA/ETA Editor - User Guide
+# FTA/ETA 编辑器——用户手册（汉化版）
 
-**Version**: 1.5.1 | **Updated**: December 16, 2025
+**版本**：1.5.1 | **更新日期**：2025 年 12 月 16 日
 
-Complete guide for using the Fault Tree Analysis and Event Tree Analysis Editor with AI Assistant.
+面向事故树分析（FTA）与事件树分析（ETA）编辑器及其 AI 助手（AI Assistant）功能的完整使用指南。
 
-## Table of Contents
+## 目录
 
-- [Getting Started](#getting-started)
-- [Understanding FTA vs ETA](#understanding-fta-vs-eta)
-- [User Interface](#user-interface)
-- [AI Assistant](#ai-assistant)
-- [Working with Nodes](#working-with-nodes)
-- [Probability Calculations](#probability-calculations)
-- [Export Options](#export-options)
-- [Keyboard Shortcuts](#keyboard-shortcuts)
-- [Examples](#examples)
-- [Troubleshooting](#troubleshooting)
+- [快速开始](#快速开始)
+- [理解 FTA 与 ETA](#理解-fta-与-eta)
+- [用户界面](#用户界面)
+- [AI 助手](#ai-助手)
+- [节点的操作](#节点的操作)
+- [概率计算](#概率计算)
+- [导出选项](#导出选项)
+- [键盘快捷键](#键盘快捷键)
+- [示例](#示例)
+- [故障排查（FAQ）](#故障排查faq)
+- [最佳实践](#最佳实践)
+- [高级功能](#高级功能)
 
-## Getting Started
+## 快速开始
 
-### Installation
+### 安装
 
 ```bash
-# Install dependencies
+# 安装依赖
 pip install -r requirements.txt
 
-# Run the application
+# 运行应用程序
 python src/FTA_Editor_UI.py
 ```
 
-### First Launch
+### 首次启动
 
-When you first launch the application, you'll see:
-1. **Top Bar** - Mode selector, Title, and Date fields
-2. **Tree View** - Left panel showing your analysis tree
-3. **Diagram Preview** - Center panel with live visualization
-4. **AI Assistant** - Right panel for AI-powered analysis
-5. **Node Details** - Bottom panel showing selected node information
-6. **Action Buttons** - Bottom toolbar for all operations
+当你第一次启动应用程序时，你会看到：
+1. **顶部栏（Top Bar）**——模式选择、标题和日期字段
+2. **树视图（Tree View）**——左侧面板，显示你的分析树
+3. **图示预览（Diagram Preview）**——中间面板，提供实时可视化
+4. **AI 助手（AI Assistant）**——右侧面板，用于 AI 智能分析
+5. **节点详情（Node Details）**——底部面板，显示所选节点的信息
+6. **操作按钮（Action Buttons）**——底部工具栏，用于执行所有操作
 
-## Understanding FTA vs ETA
+## 理解 FTA 与 ETA
 
-### FTA (Fault Tree Analysis) - Bottom-Up
+### FTA（故障树分析）——自下而上（Bottom-Up）
 
-**Purpose**: Analyze how component failures lead to system failure
+**目的**：分析组件故障如何导致系统故障
 
-**Calculation Direction**: Children → Parent
+**计算方向**：子节点 → 父节点
 
-**Example Use Case**: "What causes the system to fail?"
-
-```
-System Failure (Parent calculated from children)
-├─ Component A Fails (0.1)
-├─ Component B Fails (0.2)  } → Parent probability calculated
-└─ Component C Fails (0.15)     from these children
-```
-
-**When to Use FTA**:
-- Reliability engineering
-- Root cause analysis
-- Failure mode analysis
-- Quality control
-
-### ETA (Event Tree Analysis) - Top-Down
-
-**Purpose**: Analyze possible outcomes following an initiating event
-
-**Calculation Direction**: Parent → Children
-
-**Example Use Case**: "What happens if this event occurs?"
+**典型应用场景**：*"是什么导致系统发生故障？"*
 
 ```
-Initiating Event (0.001)
-├─ Path A (0.9) → Calc: 0.001 × 0.9 = 0.0009
-│  ├─ Outcome A1 (0.8) → Calc: 0.0009 × 0.8 = 0.00072
-│  └─ Outcome A2 (0.2) → Calc: 0.0009 × 0.2 = 0.00018
-└─ Path B (0.1) → Calc: 0.001 × 0.1 = 0.0001
+系统故障（由子节点计算得到的父节点）
+├─ 组件 A 故障 (0.1)
+├─ 组件 B 故障 (0.2)  } → 父节点概率由这些子节点计算得出
+└─ 组件 C 故障 (0.15)
 ```
 
-**When to Use ETA**:
-- Safety analysis
-- Accident sequence analysis
-- Risk assessment
-- Consequence modeling
+**何时使用 FTA**：
+- 可靠性工程
+- 根本原因分析
+- 失效模式分析
+- 质量控制
 
-## User Interface
+### ETA（事件树分析）——自顶向下（Top-Down）
 
-### Top Bar
+**目的**：分析在某个始发事件发生后可能出现的各种后果
+
+**计算方向**：父节点 → 子节点
+
+**典型应用场景**：*"如果这个事件发生了会怎么样？"*
+
+```
+始发事件 (0.001)
+├─ 路径 A (0.9) → 计算: 0.001 × 0.9 = 0.0009
+│  ├─ 结果 A1 (0.8) → 计算: 0.0009 × 0.8 = 0.00072
+│  └─ 结果 A2 (0.2) → 计算: 0.0009 × 0.2 = 0.00018
+└─ 路径 B (0.1) → 计算: 0.001 × 0.1 = 0.0001
+```
+
+**何时使用 ETA**：
+- 安全分析
+- 事故序列分析
+- 风险评估
+- 后果建模
+
+## 用户界面
+
+### 顶部栏（Top Bar）
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│ Mode: [FTA ▼]  Title: [My Analysis]  Date: [2025-10-31] │
+│ 模式: [FTA ▼]  标题: [我的分析]  日期: [2025-10-31] │
 └──────────────────────────────────────────────────────────┘
 ```
 
-**Mode Selector**:
-- Switch between FTA and ETA modes
-- Probabilities recalculate automatically
-- Tree label updates accordingly
+**模式选择器（Mode Selector）**：
+- 在 FTA 与 ETA 两种模式之间切换
+- 概率会自动重新计算
+- 树的标签也会随之更新
 
-**Title Field**:
-- Name your analysis
-- Saved with JSON file
-- Helps organize multiple analyses
+**标题字段（Title Field）**：
+- 为你的分析命名
+- 随 JSON 文件一起保存
+- 有助于管理多个分析
 
-**Date Field**:
-- Document when analysis was performed
-- Free-text format
-- Saved with JSON file
+**日期字段（Date Field）**：
+- 记录分析的执行时间
+- 自由文本格式
+- 随 JSON 文件一起保存
 
-### Tree View
+### 树视图（Tree View）
 
-- Hierarchical display of your analysis
-- Color-coded by depth level
-- Click to select nodes
-- Shows node names
-- Red asterisk (*) marks zero-probability nodes
+- 以层级方式显示你的分析
+- 按深度级别进行颜色编码
+- 单击即可选中节点
+- 显示节点名称
+- 红色星号（*）用于标记零概率节点
 
-### Diagram Preview
+### 图示预览（Diagram Preview）
 
-- Live visualization using Graphviz
-- Pan: Click and drag
-- Zoom: Ctrl + Mouse Wheel
-- Updates automatically when tree changes
+- 使用 Graphviz 进行实时可视化
+- 平移：按住鼠标左键拖动
+- 缩放：Ctrl + 鼠标滚轮
+- 当树发生改变时自动更新
 
-### Node Details Panel
+### 节点详情面板（Node Details Panel）
 
-Shows selected node information:
-- Name
-- Type (Root, Event, Gate, etc.)
-- Base Probability
-- Calculated Probability
-- Logic Gate (AND/OR)
-- Notes
-- Links to other nodes
+显示所选节点的信息：
+- 名称（Name）
+- 类型（Type）——根节点（Root）、事件（Event）、逻辑门（Gate）等
+- 基础概率（Base Probability）
+- 计算概率（Calculated Probability）
+- 逻辑门（Logic Gate）——AND / OR
+- 备注（Notes）
+- 与其他节点的链接（Links）
 
-## AI Assistant
+## AI 助手
 
-The AI Assistant provides intelligent analysis and suggestions for your fault trees using OpenAI-compatible APIs.
+AI 助手通过兼容 OpenAI 的 API，为你的故障树提供智能分析与建议。
 
-### Setup
+> **国内服务商优先**：本版本默认适配国内主流服务商，模型名称与调用端点已由程序内置，你无需（也无需）手动填写端点地址，只需在「AI 设置」中确定模型并填写 API 密钥即可。
 
-1. Click the **⚙ (Settings)** button in the AI Assistant panel
-2. Enter your API credentials:
-   - **API Key**: Your OpenAI or compatible API key
-   - **API Endpoint**: `https://api.openai.com/v1` (default) or your custom endpoint
-   - **Model**: Select gpt-4o, gpt-4o-mini, or other models
-3. Click **Test & Save** to verify and store credentials
+### 国内核心服务商（端点已由程序内置，文档无需手填端点）
 
-> **Security**: Credentials are stored locally at `~/.fta_editor/ai_credentials.json`, never in the repository.
+| 服务商 | 推荐模型 | 开通地址 |
+| --- | --- | --- |
+| DeepSeek | `deepseek-v4-flash` / `deepseek-v4-pro` | https://platform.deepseek.com |
+| 通义千问（阿里云） | `qwen3.8-max` / `qwen3.8-flash` / `qwen3.7-plus` | https://dashscope.console.aliyun.com |
+| 智谱清言 | `glm-5.3` / `glm-5.3-flash` / `glm-4.7-flash` | https://open.bigmodel.cn |
+| Kimi（月之暗面） | `kimi-k3` / `kimi-k2.6` | https://platform.moonshot.cn |
+| Ollama 本地 | `qwen3:8b` / `llama3.3:70b` / `qwen2.5` | 免密钥，需本机 `ollama pull`，如 `ollama pull qwen3:8b` |
 
-### Features
+说明：
+- 不同模型各有取舍——通常「flash」类模型响应更快，「max / pro」类模型推理能力更强、结果更可靠。
+- Kimi 新模型的 temperature 由程序自动适应，无需手动调节。
+- 配置入口为「AI 设置（⚙）」。
+- Ollama 适用于本地部署，无需任何 API 密钥，且数据不出本机；首次使用前需在终端执行如 `ollama pull qwen3:8b` 拉取模型。
 
-**Quick Actions**:
-- **Analyze FTA**: Posts analysis and suggestions to chat only (no changes applied).
-- **Update FTA**: AI generates a complete updated JSON, validates it, and replaces the current tree. Existing nodes are preserved; only additions are applied. Detailed error logs are shown if the AI output is invalid.
-- **Clear Chat**: Reset conversation history
+**国际服务商（备选）**：OpenAI、Anthropic Claude、Google Gemini、Microsoft Copilot。
+其中 Gemini / OpenAI / Claude 对国内访问可能受限，建议国内用户优先选择上方的国内服务商。
 
-**Free Chat**:
-Type any question in the input box and press Enter. Examples:
-- "What root causes might be missing from this failure mode?"
-- "Can you review the probabilities in this tree?"
-- "What are common causes of pump failures?"
+### 设置（Setup）
 
-### Applying Changes
+1. 点击 AI 助手面板中的 **⚙（设置/Settings）** 按钮
+2. 填写你的 API 凭证：
+   - **API Key**：从上方国内服务商平台获取的 API 密钥（Ollama 本地时无需填写）
+   - **API Endpoint**：端点已由国内服务商优先方案内置，默认无需修改；如需自建 GPT 兼容（OpenAI-compatible）服务，可在此填写自定义端点
+   - **模型（Model）**：按上表选择国内模型，例如 `deepseek-v4-flash`、`qwen3.8-max`、`glm-5.3-flash`、`kimi-k3`（Ollama 选自 `qwen3:8b` 等本地模型）
+3. 点击 **测试并保存（Test & Save）** 以验证并保存凭证
 
-- Use **Analyze FTA** for a safe review-only mode.
-- Use **Update FTA** to apply all additions at once: the AI returns a full JSON which is verified before replacing your current tree. If the JSON is invalid, the update is rejected and the problematic section is shown in the chat and console.
+> **安全提示**：凭证会保存在本机本地路径 `~/.fta_editor/ai_credentials.json`，绝不会写入代码仓库。
 
-### Status Indicator
+> **获取 API 密钥**：国内用户建议优先使用上方国内服务商平台开通并获取密钥（DeepSeek / 通义千问 / 智谱清言 / Kimi，见上表）；如确需使用 Gemini / OpenAI / Claude 等国际服务，其境外申请链接对国内访问可能受限，请在网络畅通时访问。
 
-- **● (Green)**: AI is configured and ready
-- **○ (Gray)**: AI not configured - click ⚙ to set up
+### 功能（Features）
 
-## Working with Nodes
+**快捷操作（Quick Actions）**：
+- **分析 FTA（Analyze FTA）**：将分析与建议发送到聊天窗口（仅为审查模式，不做任何更改）。
+- **更新 FTA（Update FTA）**：AI 生成一份完整的更新后 JSON，经校验后替换当前故障树。已有节点会被保留，只应用新增内容。若 AI 输出无效，会给出详细的错误日志。
+- **清空聊天（Clear Chat）**：重置对话历史
 
-### Adding a Node
+**自由对话（Free Chat）**：
+在输入框中输入任意问题并按回车即可。例如：
+- "这个失效模式中还有哪些可能遗漏的根本原因？"
+- "你能审查一下这棵故障树里的概率吗？"
+- "泵发生故障的常见原因有哪些？"
 
-1. Select parent node in tree
-2. Click "Add Node" button (or press Ctrl+A)
-3. Fill in node details:
-   - **Name**: Descriptive name
-   - **Type**: Event, Gate, etc.
-   - **Probability**: Base probability (0.0-1.0)
-   - **Logic Gate**: AND or OR (for nodes with children)
-   - **Notes**: Optional description
+### 应用更改（Applying Changes）
 
-### Editing a Node
+- 使用 **分析 FTA（Analyze FTA）** 进入安全的只读审查模式。
+- 使用 **更新 FTA（Update FTA）** 一次性应用全部新增内容：AI 返回一份完整 JSON，在替换当前故障树之前会先进行校验。若 JSON 无效，本次更新会被拒绝，并在聊天窗口和控制台中显示存在问题的部分。
 
-1. Select node in tree
-2. Click "Edit Node" button (or press Ctrl+E)
-3. Modify any fields
-4. Save changes
+### 状态指示器（Status Indicator）
 
-### Deleting a Node
+- **●（绿色）**：AI 已配置完成并可用
+- **○（灰色）**：AI 未配置——点击 ⚙ 进行设置
 
-1. Select node in tree
-2. Click "Delete Node" button (or press Ctrl+D)
-3. Confirm deletion
-4. All children are also deleted
+## 节点的操作
 
-### Node Linking
+### 添加节点（Adding a Node）
 
-**Create Link Between Nodes**:
-1. Edit the node where link originates
-2. Add link in the "Links" section
-3. Select target node
-4. Choose relationship: AND or OR
+1. 在树中选中父节点
+2. 点击“添加节点（Add Node）”按钮（或按 Ctrl+A）
+3. 填写节点详情：
+   - **名称（Name）**：描述性名称
+   - **类型（Type）**：事件（Event）、逻辑门（Gate）等
+   - **概率（Probability）**：基础概率（0.0–1.0）
+   - **逻辑门（Logic Gate）**：AND 或 OR（仅用于带子节点的节点）
+   - **备注（Notes）**：可选描述
 
-**Link Relationships**:
-- **AND Link**: Both nodes must occur (multiply probabilities)
-- **OR Link**: At least one occurs (union formula)
+### 编辑节点（Editing a Node）
 
-## Probability Calculations
+1. 在树中选中节点
+2. 点击“编辑节点（Edit Node）”按钮（或按 Ctrl+E）
+3. 修改任意字段
+4. 保存更改
 
-### FTA Mode Calculations
+### 删除节点（Deleting a Node）
 
-**For Leaf Nodes** (no children):
+1. 在树中选中节点
+2. 点击“删除节点（Delete Node）”按钮（或按 Ctrl+D）
+3. 确认删除
+4. 其所有子节点也会一并删除
+
+### 节点链接（Node Linking）
+
+**在节点之间创建链接**：
+1. 编辑作为链接起点的节点
+2. 在“链接（Links）”区域添加链接
+3. 选择目标节点
+4. 选择关系：AND 或 OR
+
+**链接关系（Link Relationships）**：
+- **AND 链接**：两个节点都必须发生（概率相乘）
+- **OR 链接**：至少一个发生（采用并集公式计算）
+
+## 概率计算
+
+### FTA 模式下的计算
+
+**对于叶子节点（Leaf Nodes，无子节点）**：
 ```
-Calculated Probability = Base Probability
+计算概率 = 基础概率
 ```
 
-**For Nodes with Children**:
+**对于带子节点的节点**：
 
-AND Gate:
+AND 门：
 ```
-Calculated = Base × Product(Child1, Child2, ...)
-```
-
-OR Gate:
-```
-Calculated = 1 - Product((1-Child1), (1-Child2), ...)
+计算值 = 基础 × 乘积(子节点1, 子节点2, ...)
 ```
 
-**With Links**:
-1. Calculate from children (if any)
-2. Apply AND links: multiply
-3. Apply OR links: union formula
-
-### ETA Mode Calculations
-
-**For All Nodes**:
+OR 门：
 ```
-Child Calculated = Parent Calculated × Child Base
+计算值 = 1 - 乘积((1-子节点1), (1-子节点2), ...)
 ```
 
-Flows top-down from root to leaves.
+**带链接时**：
+1. 先从子节点计算（若有）
+2. 应用 AND 链接：相乘
+3. 应用 OR 链接：采用并集公式
 
-### Zero Probability Nodes
+### ETA 模式下的计算
 
-Nodes with zero probability are marked with red asterisk (*) in tree view.
+**对于所有节点**：
+```
+子节点计算值 = 父节点计算值 × 子节点基础值
+```
 
-**Common Causes**:
-- Base probability set to 0.0
-- In FTA: child with 0.0 probability in AND gate
-- In ETA: parent has 0.0 calculated probability
+自顶向下地从根节点流向叶子节点。
 
-## Export Options
+### 零概率节点
 
-### JSON Export
+概率为零的节点会在树视图中以红色星号（*）标记。
 
-**File → Save JSON**
+**常见原因**：
+- 基础概率被设为 0.0
+- 在 FTA 中：AND 门中某个子节点的概率为 0.0
+- 在 ETA 中：父节点的计算概率为 0.0
 
-Saves complete analysis including:
-- Metadata (title, date, mode)
-- Full tree structure
-- All probabilities
-- Links and notes
+## 导出选项
 
-**Format**:
+### JSON 导出
+
+**文件（File）→ 保存 JSON（Save JSON）**
+
+保存完整的分析结果，包括：
+- 元数据（标题、日期、模式）
+- 完整的树结构
+- 所有概率
+- 链接与备注
+
+**格式**：
 ```json
 {
-  "title": "Analysis Name",
+  "title": "分析名称",
   "date": "2025-10-31",
   "mode": "ETA",
   "tree": { ... }
 }
 ```
 
-### Excel Export
+### Excel 导出
 
-**File → Export Excel**
+**文件（File）→ 导出 Excel（Export Excel）**
 
-Hierarchical column structure:
-- Column A: Root events
-- Column B: Level 1 children
-- Column C: Level 2 children
-- Continues for all levels
+层级化的列结构：
+- A 列：根事件（Root events）
+- B 列：第 1 层子节点（Level 1 children）
+- C 列：第 2 层子节点（Level 2 children）
+- 依此类推，覆盖所有层级
 
-**Features**:
-- Color-coded by depth
-- Auto-adjusted widths
-- Wrapped text
-- All node details in each cell
+**特性**：
+- 按深度进行颜色编码
+- 自动调整列宽
+- 自动换行显示文本
+- 每个单元格包含完整的节点详情
 
-### XML Export
+### XML 导出
 
-**File → Export XML**
+**文件（File）→ 导出 XML（Export XML）**
 
-Standard fault tree XML format, compatible with other FTA tools.
+采用标准的故障树 XML 格式，可与其他 FTA 工具兼容。
 
-## Keyboard Shortcuts
+## 键盘快捷键
 
-- `Ctrl+A` - Add Node
-- `Ctrl+E` - Edit Node
-- `Ctrl+D` - Delete Node
-- `Ctrl+S` - Save (overwrite)
-- `Ctrl+Shift+S` - Save As
-- `Ctrl+R` - Render Diagram
+- `Ctrl+A`——添加节点（Add Node）
+- `Ctrl+E`——编辑节点（Edit Node）
+- `Ctrl+D`——删除节点（Delete Node）
+- `Ctrl+S`——保存（覆盖）
+- `Ctrl+Shift+S`——另存为（Save As）
+- `Ctrl+R`——渲染图示（Render Diagram）
 
-## Examples
+## 示例
 
-### Example 1: Server Reliability (FTA)
+### 示例 1：服务器可靠性（FTA）
 
-**Scenario**: Analyze server downtime causes
+**场景**：分析服务器停机的原因
 
-1. Set Mode to "FTA"
-2. Create root: "Server Unavailable"
-3. Add children:
-   - Hardware Failure (0.1)
-   - Software Crash (0.15)
-   - Network Issue (0.08)
-4. Set root Logic Gate to "OR"
-5. Result: Root calculated probability shows overall failure rate
+1. 将模式设置为 "FTA"
+2. 创建根节点："服务器不可用（Server Unavailable）"
+3. 添加子节点：
+   - 硬件故障（Hardware Failure）(0.1)
+   - 软件崩溃（Software Crash）(0.15)
+   - 网络问题（Network Issue）(0.08)
+4. 将根节点的逻辑门设置为 "OR"
+5. 结果：根节点的计算概率将显示整体的故障率
 
-### Example 2: Nuclear Safety (ETA)
+### 示例 2：核安全（ETA）
 
-**Scenario**: Analyze loss of coolant accident sequences
+**场景**：分析冷却剂丧失（Loss of Coolant）事故序列
 
-1. Set Mode to "ETA"
-2. Create root: "Loss of Coolant" (0.001)
-3. Add branches:
-   - ECCS Activates (0.99)
-     - Core Cooled (0.98)
-     - Partial Cooling (0.02)
-   - ECCS Fails (0.01)
-     - Core Meltdown (1.0)
-4. Calculated probabilities show each outcome likelihood
+1. 将模式设置为 "ETA"
+2. 创建根节点："丧失冷却剂（Loss of Coolant）" (0.001)
+3. 添加分支：
+   - ECCS 启动（ECCS Activates）(0.99)
+     - 堆芯冷却正常（Core Cooled）(0.98)
+     - 部分冷却（Partial Cooling）(0.02)
+   - ECCS 失效（ECCS Fails）(0.01)
+     - 堆芯熔毁（Core Meltdown）(1.0)
+4. 计算所得概率可显示每种后果的发生可能性
 
-## Troubleshooting
+## 故障排查（FAQ）
 
-**Q: Probabilities seem wrong after mode switch**
-A: Different modes calculate differently - this is expected. FTA is bottom-up, ETA is top-down.
+**问：切换模式后概率似乎不对了。**
+答：不同模式的计算方式不同，这是正常现象。FTA 为自下而上（bottom-up），ETA 为自顶向下（top-down）。
 
-**Q: Can't see diagram preview**
-A: Ensure Graphviz is installed and in your PATH.
+**问：看不到图示预览。**
+答：请确认已安装 Graphviz，并将其加入 PATH 环境变量（安装时勾选 Add to PATH）。
 
-**Q: Zero probability nodes everywhere**
-A: Check that probabilities are set > 0. In FTA mode, check logic gates.
+**问：到处都是零概率节点。**
+答：请检查概率是否已设置为大于 0。在 FTA 模式中，还需检查逻辑门的设置。
 
-**Q: Excel export fails**
-A: Ensure openpyxl is installed: `pip install openpyxl`
+**问：Excel 导出失败。**
+答：请确认已安装 openpyxl：`pip install openpyxl`
 
-**Q: Legacy JSON files don't load properly**
-A: Old format is supported, but defaults to FTA mode. Set mode manually after loading.
+**问：旧的 JSON 文件无法正确加载。**
+答：旧格式受支持，但默认按 FTA 模式加载。加载后请手动设置模式。
 
-**Q: AI Assistant shows "not configured"**
-A: Click the ⚙ button in the AI panel to enter your API credentials.
+**问：AI 助手显示 "not configured"（未配置）。**
+答：点击 AI 面板中的 ⚙ 按钮以填写你的 API 凭证。国内用户请优先选用上方国内服务商，并在其平台开通获取 API 密钥。
 
-**Q: AI connection test fails**
-A: Verify your API key is valid and has available credits. Check internet connection.
+**问：AI 连接测试失败。**
+答：请核验你的 API 密钥是否有效且有可用额度，并检查网络连接。国内用户建议优先选择国内服务商（DeepSeek / 通义千问 / 智谱清言 / Kimi 或本地 Ollama），避免境外服务商对国内访问受限的问题。
 
-**Q: AI responses are slow**
-A: Consider using a faster model like `gpt-4o-mini`. Check your API rate limits.
+**问：AI 响应很慢。**
+答：可考虑改用速度更快的模型，如 `deepseek-v4-flash`、`qwen3.8-flash`、`glm-5.3-flash` 或 `kimi-k2.6`；也可检查所用服务商的 API 速率限制（rate limits）。
 
-**Q: AI suggestions don't apply correctly**
-A: Ensure you've reviewed and selected the changes in the confirmation dialog.
+**问：AI 的建议无法正确应用。**
+答：请确认你已在确认对话框中查看并勾选了需要应用的更改。
 
-## Best Practices
+## 最佳实践
 
-1. **Use Descriptive Names**: Make nodes self-explanatory
-2. **Document with Dates**: Always fill in the date field
-3. **Add Notes**: Use notes field for important context
-4. **Save Frequently**: Use Ctrl+S regularly
-5. **Validate Results**: Check calculated probabilities make sense
-6. **Export Regularly**: Keep Excel/XML exports for sharing
+1. **使用描述性名称**：让节点具有自解释性
+2. **用日期记录**：始终填写日期字段
+3. **添加备注**：使用备注字段记录重要上下文
+4. **经常保存**：养成使用 Ctrl+S 的习惯
+5. **校验结果**：确认计算所得的概率在逻辑上合理
+6. **定期导出**：保留 Excel / XML 导出，便于共享交流
 
-## Advanced Features
+## 高级功能
 
-### Using Links
+### 使用链接（Using Links）
 
-Links allow dependencies between non-parent/child nodes:
+链接允许表达非父子关系的节点之间的依赖：
 
 ```
-Node A (0.5)
-  Link→ AND to Node B (0.8)
-  Result: A's probability becomes 0.5 × 0.8 = 0.4
+节点 A (0.5)
+  链接→ AND 到 节点 B (0.8)
+  结果: A 的概率变为 0.5 × 0.8 = 0.4
 ```
 
-### Mixed AND/OR Gates
+### 混合使用 AND / OR 门
 
-You can have different logic gates at different levels:
-- Root: OR gate (any child causes failure)
-- Children: AND gates (all sub-components must fail)
+你可以在不同层级使用不同的逻辑门：
+- 根节点：OR 门（任意子节点发生故障都会导致故障）
+- 子节点：AND 门（所有子组件都必须失效）
 
-### Circular Reference Handling
+### 循环引用处理（Circular Reference Handling）
 
-The calculator detects circular references and uses base probability to break the cycle.
+计算器会检测循环引用，并使用基础概率来打破循环。
 
 ---
 
-For more details, see:
-- [ETA Mode Documentation](ETA_MODE.md)
-- [Probability Validation](PROBABILITY_VALIDATION.md)
-- [API Reference](API_REFERENCE.md)
+如需更多详细信息，请参阅：
+- [ETA 模式文档](ETA_MODE.md)
+- [概率校验](PROBABILITY_VALIDATION.md)
+- [API 参考](API_REFERENCE.md)

@@ -1,224 +1,231 @@
-# Quick AI Provider Setup Guide
+# AI 服务商快速配置指南
 
-**Choose your AI provider and get started in 5 minutes!**
+**选择你的 AI 服务商，5 分钟内即可开始使用！**
 
-## How Model Selection Works
+国内用户优先推荐 DeepSeek、通义千问、智谱清言、Kimi 等国内服务商（无需科学上网，端点已由程序内置），也可以使用 Ollama 本地模型实现完全离线、免密钥。
 
-When you enter your API key in the FTA Editor, it automatically fetches the **available models** for your chosen provider. This ensures you always have the latest models that are actually available for your account.
+## 模型选择是如何工作的
 
-- **Enter API Key** → Models automatically populate
-- **Click Refresh Button** (↻) → Manually refresh the model list anytime
-- Can't connect? Falls back to **default models** with a notification
+当你在 FTA Editor 中输入 API 密钥后，程序会自动获取所选服务商**可用模型列表**。这可以确保你始终使用你账户实际可用的最新模型。
 
-## TL;DR - Quick Start
+- **输入 API 密钥** → 模型列表自动填充
+- **点击刷新按钮（↻）** → 随时手动刷新模型列表
+- **无法连接？** → 自动回退到**默认模型**并弹出提示
 
-### 1️⃣ Google Gemini (Free + Pay-as-you-go)
+## 快速开始（TL;DR）
+
+### 1️⃣ DeepSeek（推荐，按量计费）
 ```
-1. Go to: https://aistudio.google.com/apikey
-2. Click "Create API Key"
-3. Copy your API key
-4. Open FTA Editor → AI Settings (⚙)
-5. Select "Google Gemini"
-6. Paste API key → Models auto-populate
-7. Click "Test & Save"
+1. 前往：https://platform.deepseek.com
+2. 注册并创建 API 密钥
+3. 复制你的 API 密钥
+4. 打开 FTA Editor → AI 设置（⚙）
+5. 选择 "DeepSeek"
+6. 粘贴 API 密钥 → 模型自动填充（deepseek-v4-flash / deepseek-v4-pro）
+7. 点击 "测试并保存"
 ```
-✅ **Free tier**: 15 requests/minute  
-💰 **Cost**: ~$0.001 per FTA analysis after free tier
+✅ **特点**：国内直连、响应快、性价比高
+💰 **费用**：按量计费，每次 FTA 分析花费极低
 
 ---
 
-### 2️⃣ Anthropic Claude (Pay-as-you-go)
+### 2️⃣ 通义千问（阿里云，按量计费）
 ```
-1. Go to: https://console.anthropic.com/
-2. Sign up → Create API Key
-3. Set up billing (credit card)
-4. Copy your API key
-5. Open FTA Editor → AI Settings (⚙)
-6. Select "Anthropic Claude"
-7. Paste API key → Models auto-populate
-8. Click "Test & Save"
+1. 前往：https://dashscope.console.aliyun.com
+2. 注册登录 → 开通百炼平台并创建 API 密钥
+3. 复制你的 API 密钥
+4. 打开 FTA Editor → AI 设置（⚙）
+5. 选择 "通义千问"
+6. 粘贴 API 密钥 → 模型自动填充（qwen3.8-max / qwen3.8-flash / qwen3.7-plus）
+7. 点击 "测试并保存"
 ```
-💰 **Cost**: ~$0.02-0.05 per FTA analysis  
-✨ **Best for**: Complex reasoning
 
 ---
 
-### 3️⃣ OpenAI GPT-4o (Pay-as-you-go)
+### 3️⃣ 智谱清言（按量计费）
 ```
-1. Go to: https://platform.openai.com/
-2. Sign up → Create API Key
-3. Add billing (credit card)
-4. Copy your API key
-5. Open FTA Editor → AI Settings (⚙)
-6. Select "OpenAI" → Paste key → Test & Save
+1. 前往：https://open.bigmodel.cn
+2. 注册登录 → 创建 API 密钥
+3. 复制你的 API 密钥
+4. 打开 FTA Editor → AI 设置（⚙）
+5. 选择 "智谱清言"
+6. 粘贴 API 密钥 → 模型自动填充（glm-5.3 / glm-5.3-flash / glm-4.7-flash）
+7. 点击 "测试并保存"
 ```
-💰 **Cost**: ~$0.01-0.02 per FTA analysis  
-⚡ **Speed**: Fastest
 
 ---
 
-### 4️⃣ GitHub Copilot (With $20/month subscription)
+### 4️⃣ Kimi（月之暗面，按量计费）
 ```
-1. You already have access via subscription!
-2. Go to: https://github.com/settings/tokens
-3. Generate personal access token (read:user scope)
-4. Open FTA Editor → AI Settings (⚙)
-5. Select "OpenAI" (GitHub uses OpenAI API)
-6. Paste token → Test & Save
+1. 前往：https://platform.moonshot.cn
+2. 注册登录 → 创建 API 密钥
+3. 复制你的 API 密钥
+4. 打开 FTA Editor → AI 设置（⚙）
+5. 选择 "Kimi"
+6. 粘贴 API 密钥 → 模型自动填充（kimi-k3 / kimi-k2.6）
+7. 点击 "测试并保存"
 ```
-💰 **Cost**: Already included with GitHub Copilot Pro ($20/month)
+💡 **提示**：Kimi 新模型的 temperature 由程序自动适应，用户无需额外配置。
 
 ---
 
-## Provider Comparison at a Glance
-
-| | **Gemini** | **Claude** | **GPT-4o** | **Copilot** |
-|---|-----------|-----------|----------|-----------|
-| **Free?** | ✅ | ❌ | ❌ | ❌ |
-| **Speed** | ⚡ Fast | 🐢 Medium | ⚡⚡ Fastest | ⚡⚡ |
-| **Cost/Analysis** | $0.001 | $0.02-0.05 | $0.01-0.02 | Included |
-| **Best For** | Budget | Reasoning | General | Devs |
-| **Setup** | 2 min | 5 min | 5 min | 5 min |
-
----
-
-## Step-by-Step: Google Gemini (Recommended for Starting)
-
-### Step 1: Get API Key
-1. Visit [Google AI Studio](https://aistudio.google.com/apikey)
-2. Click **"Create API Key"** button
-3. Select your Google Cloud project (or create new)
-4. You'll see your API key (looks like: `AIzaSy...`)
-5. Copy it to clipboard
-
-### Step 2: Add to FTA Editor
-1. Launch FTA Editor
-2. Look for the chat panel on the right side
-3. Click the **⚙ (Settings)** button
-4. In the dialog:
-   - **Provider**: Select `"Google Gemini"` from dropdown
-   - **API Key**: Paste your key from Step 1
-   - **Endpoint**: Auto-filled (`https://generativelanguage.googleapis.com/v1beta`)
-   - **Model**: Select `"gemini-1.5-pro"`
-5. Click **"Test & Save"** button
-6. You'll see: ✓ "Configuration saved successfully!"
-
-### Step 3: Start Using
-- Now you can ask FTA questions!
-- Click "Analyze FTA" for quick suggestions
-- Type in the chat box to ask custom questions
-
-**You're done! 🎉**
+### 5️⃣ Ollama 本地（免密钥、完全离线）
+```
+1. 在电脑上安装 Ollama
+2. 打开终端执行：ollama pull qwen3:8b
+   （也可拉取 llama3.3:70b、qwen2.5 等模型）
+3. 打开 FTA Editor → AI 设置（⚙）
+4. 选择 "Ollama 本地"（无需 API 密钥）
+5. 选择已拉取的模型 → 点击 "测试并保存"
+```
+✅ **特点**：本地运行、隐私安全、无需联网与密钥
+💡 **提示**：70B 等大模型对显存和内存要求较高，普通电脑建议使用 `qwen3:8b` 或 `qwen2.5`。
 
 ---
 
-## Step-by-Step: Anthropic Claude
+## 服务商横向对比一览
 
-### Step 1: Get API Key
-1. Visit [Anthropic Console](https://console.anthropic.com/)
-2. Sign up or log in with your email
-3. Click **"Create Key"** button in API Keys section
-4. Copy your API key (starts with: `sk-ant-`)
+| | **DeepSeek** | **通义千问** | **智谱清言** | **Kimi** | **Ollama** |
+|---|-----------|-----------|----------|----------|-----------|
+| **远程/本地** | 远程 | 远程 | 远程 | 远程 | 本地 |
+| **需要密钥?** | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **需要联网?** | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **是否需科学上网** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **费用/次** | 极低 | 极低 | 极低 | 极低 | 免费 |
+| **配置耗时** | 2 分钟 | 2 分钟 | 2 分钟 | 2 分钟 | 视模型下载时间 |
 
-### Step 2: Set Up Billing
-1. In Anthropic Console, go to **"Settings"** → **"Billing"**
-2. Add your credit card
-3. Set spending limit (optional, recommended: $10-20/month)
-
-### Step 3: Add to FTA Editor
-1. Open FTA Editor AI Settings (⚙)
-2. In the dialog:
-   - **Provider**: Select `"Anthropic Claude"`
-   - **API Key**: Paste your key
-   - **Endpoint**: Auto-filled
-   - **Model**: Select `"claude-3-5-sonnet-20241022"`
-3. Click **"Test & Save"**
-
-**You're done! 🎉**
+> **国际服务商（备选）**：OpenAI（gpt）、Anthropic Claude、Google Gemini、Microsoft Copilot（Azure OpenAI 兼容）。其中 Gemini / OpenAI / Claude 对国内访问可能受限，建议国内用户优先选择上述国内服务商。
 
 ---
 
-## Step-by-Step: OpenAI GPT-4o
+## 分步详解：DeepSeek（推荐入门）
 
-### Step 1: Create Account & Get API Key
-1. Visit [OpenAI Platform](https://platform.openai.com/)
-2. Sign up or log in
-3. Click **"API keys"** in left menu
-4. Click **"Create new secret key"**
-5. Copy the key (won't show again!)
+### 第一步：获取 API 密钥
+1. 访问 [DeepSeek 开放平台](https://platform.deepseek.com)
+2. 注册并登录账户
+3. 在密钥管理页面点击**"创建 API 密钥"**
+4. 复制生成的 API 密钥（通常以 `sk-` 开头）
+5. 将其复制到剪贴板
 
-### Step 2: Set Up Billing
-1. Go to **"Settings"** → **"Billing"** → **"Overview"**
-2. Click **"Add payment method"**
-3. Add credit card
-4. Go to **"Usage limits"** and set monthly limit (e.g., $25)
+### 第二步：添加到 FTA Editor
+1. 启动 FTA Editor
+2. 在右侧找到对话面板
+3. 点击 **⚙（设置）** 按钮
+4. 在对话框中：
+   - **服务商（Provider）**：在下拉框中选择 `"DeepSeek"`
+   - **API 密钥**：粘贴第一步获取的密钥
+   - **端点（Endpoint)**：自动填充，无需手动填写
+   - **模型**：选择 `"deepseek-v4-flash"`（或 `deepseek-v4-pro`）
+5. 点击 **"测试并保存"** 按钮
+6. 看到 ✓ "配置保存成功！" 即代表配置完成
 
-### Step 3: Add to FTA Editor
-1. Open FTA Editor AI Settings (⚙)
-2. In the dialog:
-   - **Provider**: Select `"OpenAI"`
-   - **API Key**: Paste your key
-   - **Endpoint**: Auto-filled
-   - **Model**: Select `"gpt-4o"`
-3. Click **"Test & Save"**
+### 第三步：开始使用
+- 现在可以向 FTA Editor 提问了！
+- 点击"分析故障树"获取快速建议
+- 在对话框中输入文字，提出自定义问题
 
-**You're done! 🎉**
-
----
-
-## Switching Providers Later
-
-Anytime you want to switch:
-
-1. Click AI Settings (⚙) again
-2. Select a different provider from dropdown
-3. Endpoint and model options update automatically
-4. Enter API key for new provider
-5. Click **"Test & Save"**
-
-Your old credentials are saved - you can always switch back!
+**配置完成！🎉**
 
 ---
 
-## Troubleshooting
+## 分步详解：Ollama 本地（免密钥离线方案）
 
-### "Connection failed" Error
+### 第一步：安装 Ollama 并拉取模型
+1. 从 Ollama 官网下载并安装
+2. 在终端执行：`ollama pull qwen3:8b`
+3. 等待下载完成（需要耐心，模型较大）
 
-**For Gemini:**
-- Check API key format (should be: `AIzaSy...`)
-- Verify API is enabled in Google Cloud Console
-- Try a simpler model like `gemini-1.5-flash`
+### 第二步：添加到 FTA Editor
+1. 打开 FTA Editor 的 AI 设置（⚙）
+2. 在对话框中：
+   - **服务商（Provider）**：选择 `"Ollama 本地"`
+   - **API 密钥**：无需填写
+   - **端点（Endpoint）**：自动填充，通常是 `http://localhost:11434`
+   - **模型**：选择已拉取的本地模型（如 `qwen3:8b`）
+3. 点击 **"测试并保存"**
 
-**For Claude:**
-- Check API key starts with `sk-ant-`
-- Verify billing is set up
-- Check if your account is in good standing
-
-**For OpenAI:**
-- Check API key starts with `sk-`
-- Verify billing and spending limits are set
-- Check if you have remaining balance
-
-### "Model not found" Error
-- Your region might not have that model
-- Try selecting a different model from the dropdown
-- Check provider documentation for region availability
+**配置完成！🎉**
 
 ---
 
+## 分步详解：OpenAI（国际备选）
 
+### 第一步：创建账户并获取 API 密钥
+1. 访问 [OpenAI Platform](https://platform.openai.com/)
+2. 注册或登录
+3. 在左侧菜单点击 **"API keys"**
+4. 点击 **"Create new secret key"**
+5. 复制密钥（密钥只显示一次，不会再次展示！）
 
+### 第二步：设置计费
+1. 前往 **"Settings"** → **"Billing"** → **"Overview"**
+2. 点击 **"Add payment method"**
+3. 添加信用卡
+4. 前往 **"Usage limits"** 设置每月限额（例如 $25）
 
+### 第三步：添加到 FTA Editor
+1. 打开 FTA Editor 的 AI 设置（⚙）
+2. 在对话框中：
+   - **服务商（Provider）**：选择 `"OpenAI"`
+   - **API 密钥**：粘贴你的密钥
+   - **端点（Endpoint）**：自动填充
+   - **模型**：选择 `gpt-4o`
+3. 点击 **"测试并保存"**
 
-## Next Steps
-
-1. **Pick your provider** from the options above
-2. **Follow the 3-step setup** for your choice
-3. **Click "Test & Save"** to verify connection
-4. **Start analyzing FTAs!** 🚀
-
-**Questions?** Check [MULTI_PROVIDER_SETUP.md](MULTI_PROVIDER_SETUP.md) for detailed documentation.
+**配置完成！🎉**
 
 ---
 
-**Pro Tip:** Start with Gemini free tier to test everything out, then upgrade to your favorite paid provider for production use!
+## 以后切换服务商
+
+随时可以切换：
+
+1. 再次点击 AI 设置（⚙）
+2. 从下拉框选择不同的服务商
+3. 端点（Endpoint）和模型选项会自动更新
+4. 输入新服务商的 API 密钥
+5. 点击 **"测试并保存"**
+
+你的旧凭据会被保留——随时可以切换回来！
+
+---
+
+## 常见问题排查
+
+### "连接失败"错误
+
+**针对 DeepSeek / 通义千问 / 智谱清言 / Kimi：**
+- 检查 API 密钥是否复制完整（不要带前后空格）
+- 确认账户已实名认证并有可用额度
+- 检查网络是否正常（国内服务商通常无需科学上网）
+
+**针对 Ollama 本地：**
+- 确认 Ollama 服务已启动（执行 `ollama serve`）
+- 确认模型已成功拉取（执行 `ollama list`）
+- 检查防火墙是否放行 `localhost:11434`
+
+**针对 OpenAI：**
+- 检查 API 密钥是否以 `sk-` 开头
+- 确认已设置计费和消费上限
+- 检查账户中是否有余额
+- 注意：OpenAI 对国内访问可能受限，建议优先使用国内服务商
+
+### "找不到模型"错误
+- 你的区域可能没有该模型
+- 尝试从下拉框选择其他模型
+- 查看服务商文档，了解模型在各地域的可用情况
+
+---
+
+## 下一步
+
+1. 从上面的选项中**选择你的服务商**（国内用户建议优先选 DeepSeek / 通义千问 / 智谱清言 / Kimi / Ollama 本地）
+2. 按所选服务商的**三步配置**执行
+3. 点击 **"测试并保存"** 验证连接
+4. **开始分析故障树！** 🚀
+
+**还有问题？** 查看 [MULTI_PROVIDER_SETUP.md](MULTI_PROVIDER_SETUP.md) 获取详细说明文档。
+
+---
+
+**贴心提示：** 国内用户建议先用无门槛的 Ollama 本地模型或 DeepSeek 免费额度体验全套功能，之后再根据需求选择适合自己的付费服务商投入实际使用！
