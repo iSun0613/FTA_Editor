@@ -2,7 +2,7 @@
 
 FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析（FTA）与事件树分析（ETA）桌面软件，支持概率计算、可视化树编辑、AI 分析助手与多种格式导出。本版内置 **DeepSeek、通义千问、智谱清言、Kimi** 等国内大模型与 **Ollama 本地**模型，开箱即可直连使用 AI 分析助手。
 
-本仓库源于 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor)，在保留原版完整功能的基础上，新增 Windows 一键启动脚本与面向国内用户的 AI 服务商支持，界面与文档均为简体中文，方便中文用户直接下载使用。
+本仓库源于 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor)，在保留原版完整功能的基础上，新增 Windows / macOS / Linux 一键启动脚本与面向国内用户的 AI 服务商支持，界面与文档均为简体中文，方便中文用户直接下载使用。
 
 ## 项目缘起
 
