@@ -4,6 +4,17 @@ FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析
 
 本仓库源于 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor)，在保留原版完整功能的基础上，新增 Windows 一键启动脚本与面向国内用户的 AI 服务商支持，界面与文档均为简体中文，方便中文用户直接下载使用。
 
+## 为什么做这个
+
+在日常工作中，要画故障树（FTA）与事件树（ETA），常见方式要么用 **Visio 手工连线**，要么用**收费的专业风险分析软件**。对需要快速出图的工作场景，这既不够高效、成本也偏高。由于工作所需，自己又抽不出太多时间一张张手动拖拽节点、连线、标注概率，所以一直想借助 AI 工具来直接生成这类图。
+
+但目前主流的**办公类 AI 工具（例如 Trae、WorkBuddy 等）大多只能输出文本、Markdown 或普通图片，还无法直接绘制并导出 Visio（.vsdx）这类结构化绘图文件**。于是基于 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 做了这个编辑器，用来满足实际工作中的出图需求：
+
+- 在图形界面里**所见即所得**地搭好故障树 / 事件树，省去手工连线；
+- 自动按逻辑门**计算概率**，并对零概率节点高亮，方便快速定位问题；
+- **AI 助手**可辅助分析与完善故障树；
+- 支持导出 **JSON / XML / Excel** 等格式，方便归档与后续使用。
+
 ## 相对原版的改进
 
 本版本在原作者 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 的基础上，主要做了以下几点增强：
