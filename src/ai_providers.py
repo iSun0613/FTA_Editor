@@ -461,7 +461,7 @@ class OpenAICompatibleProvider(AIProvider):
 class DeepSeekProvider(OpenAICompatibleProvider):
     """深度求索 DeepSeek（OpenAI 兼容接口）"""
     provider_display_name = "DeepSeek"
-    default_endpoint = "https://api.deepseek.com/v1"
+    default_endpoint = "https://api.deepseek.com"
     default_models = ["deepseek-v4-flash", "deepseek-v4-pro"]
 
 

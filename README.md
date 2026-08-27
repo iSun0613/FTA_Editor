@@ -69,7 +69,7 @@ python src/FTA_Editor_UI.py
 
 | 服务商 | 默认端点 | 默认模型 | 开通地址 |
 |--------|----------|----------|----------|
-| **DeepSeek** | `https://api.deepseek.com/v1` | `deepseek-v4-flash` / `deepseek-v4-pro` | https://platform.deepseek.com |
+| **DeepSeek** | `https://api.deepseek.com` | `deepseek-v4-flash` / `deepseek-v4-pro` | https://platform.deepseek.com |
 | **通义千问** | `https://dashscope.aliyuncs.com/compatible-mode/v1` | `qwen3.8-max` / `qwen3.8-flash` / `qwen3.7-plus` | https://dashscope.console.aliyun.com |
 | **智谱清言** | `https://open.bigmodel.cn/api/paas/v4` | `glm-5.3` / `glm-5.3-flash` / `glm-4.7-flash` | https://open.bigmodel.cn |
 | **Kimi** | `https://api.moonshot.cn/v1` | `kimi-k3` / `kimi-k2.6` | https://platform.moonshot.cn |
