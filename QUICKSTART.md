@@ -52,7 +52,7 @@ AI 助手可以分析你的故障树并提出改进建议。优先推荐国内�
 3. **智谱清言**：前往 https://open.bigmodel.cn 开通，模型可选 `glm-5.3` / `glm-5.3-flash` / `glm-4.7-flash`。
 4. **Kimi（月之暗面）**：前往 https://platform.moonshot.cn 开通，模型可选 `kimi-k3` / `kimi-k2.6`（temperature 由程序自动适应，无需额外配置）。
 5. **Ollama 本地（免密钥）**：需在电脑上执行 `ollama pull qwen3:8b`（或其他模型，如 `llama3.3:70b`、`qwen2.5`）拉取模型后即可离线使用。
-6. （备选）国际服务商：OpenAI、Anthropic Claude、Google Gemini、Microsoft Copilot（Azure OpenAI 兼容）。
+6. （备选）国际服务商：OpenAI、Anthropic Claude、Google Gemini。
 
 配置入口为 FTA Editor 的「AI 设置（⚙）」：
 

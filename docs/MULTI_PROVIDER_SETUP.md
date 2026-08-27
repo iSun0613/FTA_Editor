@@ -1,6 +1,6 @@
 # 多服务商 AI 配置指南
 
-FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（DeepSeek、通义千问、智谱清言、Kimi、Ollama 本地）与国际服务商（OpenAI、Anthropic Claude、Google Gemini、GitHub Copilot）。本指南帮助你选择并配置最适合自己的方案。
+FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（DeepSeek、通义千问、智谱清言、Kimi、Ollama 本地）与国际服务商（OpenAI、Anthropic Claude、Google Gemini）。本指南帮助你选择并配置最适合自己的方案。
 
 > **国内用户建议优先使用下方的国内 / 本地服务商**：端点与默认模型已由程序内置，开箱即可直连使用。
 
@@ -235,30 +235,6 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 
 **参考文档**：https://platform.openai.com/docs/
 
----
-
-### 4. GitHub Copilot（OpenAI 兼容）
-
-如果你已订阅 GitHub Copilot Pro（每月 $20），可借此访问 OpenAI 兼容接口。
-
-**配置步骤：**
-
-1. 获取 GitHub Personal Access Token（个人访问令牌）：
-   - 前往 https://github.com/settings/tokens
-   - 点击 **Generate new token (classic)**
-   - 勾选 ✅ `read:user` 作用域
-   - 复制该 token
-2. 在 FTA Editor 的 AI 设置中：
-   - **服务商**：选择 "OpenAI"（GitHub 使用 OpenAI 兼容接口）
-   - **API 密钥**：粘贴你的 GitHub token
-   - **端点（Endpoint）**：`https://api.github.com/v1` 或你的 GitHub Models 端点
-   - **模型（Model）**：查看你 GitHub 账号下可用的模型
-3. 点击 **测试并保存**
-
-**成本：** 已由你的 GitHub Copilot 订阅覆盖（每月 $20）
-
----
-
 ## 服务商快速对比
 
 | 服务商 | 类型 | 免费额度 | 推荐模型 | 备注 |
@@ -271,7 +247,6 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 | Google Gemini | 国际 | ✅ 免费额度 | 下拉选择 | 有免费额度 |
 | Anthropic Claude | 国际 | ❌ | 下拉选择 | 境外支付 |
 | OpenAI | 国际 | ❌ | 下拉选择 | 境外支付 |
-| GitHub Copilot | 国际 | ❌（订阅制） | 账号内可选 | 订阅制 |
 
 ---
 

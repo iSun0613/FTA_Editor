@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [中文版] - 2026-08-27（文档全面汉化、移除 Microsoft Copilot）
+
+### Removed
+- 移除 Microsoft Copilot / Azure OpenAI / GitHub Copilot 服务商支持（src/ai_providers.py），并删除 Microsoft Copilot 配置文档
+
+---
+
 ## [中文版] - 2026-08-27（国内模型版本更新与文档完善）
 
 ### Changed

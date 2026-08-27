@@ -159,7 +159,7 @@ AI 助手通过兼容 OpenAI 的 API，为你的故障树提供智能分析与�
 - 配置入口为「AI 设置（⚙）」。
 - Ollama 适用于本地部署，无需任何 API 密钥，且数据不出本机；首次使用前需在终端执行如 `ollama pull qwen3:8b` 拉取模型。
 
-**国际服务商（备选）**：OpenAI、Anthropic Claude、Google Gemini、Microsoft Copilot。
+**国际服务商（备选）**：OpenAI、Anthropic Claude、Google Gemini。
 
 ### 设置（Setup）
 

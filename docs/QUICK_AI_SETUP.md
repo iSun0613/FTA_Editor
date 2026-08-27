@@ -93,7 +93,7 @@
 | **费用/次** | 极低 | 极低 | 极低 | 极低 | 免费 |
 | **配置耗时** | 2 分钟 | 2 分钟 | 2 分钟 | 2 分钟 | 视模型下载时间 |
 
-> **国际服务商（备选）**：OpenAI（gpt）、Anthropic Claude、Google Gemini、Microsoft Copilot（Azure OpenAI 兼容）。
+> **国际服务商（备选）**：OpenAI（gpt）、Anthropic Claude、Google Gemini。
 
 ---
 
