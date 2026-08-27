@@ -19,8 +19,11 @@ FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析
 
 本版本在原作者 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 的基础上，主要做了以下几点增强：
 
-1. **界面为简体中文**：界面、菜单、按钮、提示与 AI 助手对话文案全部为简体中文，并新增 `启动FTA编辑器.bat` Windows 一键启动脚本，方便中文用户直接下载使用。
-2. **扩展 AI 服务商支持**：在原有 OpenAI / Claude / Gemini 之外，新增 **DeepSeek、通义千问、智谱清言、Kimi** 与 **Ollama 本地** 5 家国内 / 本地服务商（走 OpenAI 兼容接口、复用现有 `openai` SDK，无需新增依赖，默认模型已更新至各厂商最新版）。
+1. **界面与文档全部为简体中文**：界面、菜单、按钮、提示与 AI 助手对话文案，以及 README、快速入门、用户手册、AI 配置、API 参考等全部文档均提供简体中文版本，方便中文用户直接上手。
+2. **Windows 一键启动脚本**：新增 `启动FTA编辑器.bat`，安装依赖后双击即可运行，省去手动敲命令。
+3. **扩展国内 AI 服务商支持**：在原有 OpenAI / Claude / Gemini 之外，新增 **DeepSeek、通义千问、智谱清言、Kimi** 与 **Ollama 本地** 5 家国内 / 本地服务商，均走 OpenAI 兼容接口、复用现有 `openai` SDK，无需新增依赖，开箱即用。
+4. **面向国内用户做了适配**：端点（Endpoint）与默认模型均已内置并更新至各厂商最新版，通常无需手动填写；Ollama 本地可免密钥运行。
+5. **精简服务商列表**：移除对国内用户实用性较低的 Microsoft / Azure / GitHub Copilot 支持，让设置更清晰聚焦。
 
 > 本项目为界面改良 + 功能扩展，未改动原版核心的 FTA / ETA 算法与逻辑，遵循 BSD-2-Clause 协议。
 
