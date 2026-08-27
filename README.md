@@ -6,7 +6,7 @@ FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析
 
 ## 项目缘起
 
-我本人工科专业出身，一直从事安全管理类工作，近几年岗位也由一线转向行政岗位。近期有一个临时任务需要绘制故障树 / 事件树，而这类图在工作中往往要么靠 **Visio 手工连线**，要么用**收费的专业风险分析软件**，对需要快速出图的工作场景既不够高效、成本也偏高。由于没有太多时间一张张手动拖拽节点、连线、标注概率，就一直想借助 AI 工具来直接生成这类图。
+本人工科专业出身，一直从事安全管理类工作，近几年岗位也由一线转向行政岗位。近期有一个临时任务需要绘制故障树 / 事件树，而这类图在工作中往往要么靠 **Visio 手工连线**，要么用**收费的专业风险分析软件**，对需要快速出图的工作场景既不够高效、成本也偏高。由于没有太多时间一张张手动拖拽节点、连线、标注概率，就一直想借助 AI 工具来直接生成这类图。
 
 但目前主流的**办公类 AI 工具（例如 Trae、WorkBuddy 等）大多只能输出文本、Markdown 或普通图片，还无法直接绘制并导出 Visio（.vsdx）这类结构化绘图文件**。于是基于 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 做了这个编辑器，用来满足实际工作中的出图需求：
 
@@ -20,7 +20,7 @@ FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析
 本版本在原作者 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 的基础上，主要做了以下几点增强：
 
 1. **界面与文档全部为简体中文**：界面、菜单、按钮、提示与 AI 助手对话文案，以及 README、快速入门、用户手册、AI 配置、API 参考等全部文档均提供简体中文版本，方便中文用户直接上手。
-2. **Windows 一键启动脚本**：新增 `启动FTA编辑器.bat`，安装依赖后双击即可运行，省去手动敲命令。
+2. **多平台一键启动脚本**：新增 Windows `启动FTA编辑器.bat` 与 macOS / Linux `启动FTA编辑器.sh`，安装依赖后即可一键运行，省去手动敲命令。
 3. **扩展国内 AI 服务商支持**：在原有 OpenAI / Claude / Gemini 之外，新增 **DeepSeek、通义千问、智谱清言、Kimi** 与 **Ollama 本地** 5 家国内 / 本地服务商，均走 OpenAI 兼容接口、复用现有 `openai` SDK，无需新增依赖，开箱即用。
 4. **面向国内用户做了适配**：端点（Endpoint）与默认模型均已内置并更新至各厂商最新版，通常无需手动填写；Ollama 本地可免密钥运行。
 5. **精简服务商列表**：移除对国内用户实用性较低的 Microsoft / Azure / GitHub Copilot 支持，让设置更清晰聚焦。
@@ -50,7 +50,15 @@ FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析
 2. 双击运行 `启动FTA编辑器.bat`
 3. 首次使用前请先安装依赖：`pip install -r requirements.txt`
 
-### 方式二：命令行启动
+### 方式二：macOS / Linux 一键启动
+
+1. 安装 [Python 3.10+](https://www.python.org/downloads/) 与 [Graphviz](https://graphviz.org/download/)：
+   - macOS：`brew install graphviz`
+   - Debian / Ubuntu：`sudo apt install graphviz python3-tk`
+   - 确保已加入 PATH
+2. 在终端运行：`bash 启动FTA编辑器.sh`（首次会自动创建虚拟环境并安装依赖，之后再运行可直接启动）
+
+### 方式三：命令行启动
 
 ```bash
 # 克隆本仓库
@@ -134,6 +142,7 @@ FTA_Editor_Chinese/
 ├── data/examples/               # 示例数据
 ├── docs/                        # 文档
 ├── 启动FTA编辑器.bat             # Windows 一键启动脚本
+├── 启动FTA编辑器.sh              # macOS / Linux 一键启动脚本
 └── requirements.txt             # Python 依赖
 ```
 
