@@ -1,17 +1,17 @@
 # FTA/ETA Editor 中文版
 
-FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析（FTA）与事件树分析（ETA）桌面软件，支持概率计算、可视化树编辑、AI 分析助手与多种格式导出。除界面汉化外，本版特别适配国内用户：内置 **DeepSeek、通义千问、智谱清言、Kimi** 等国内大模型与 **Ollama 本地**模型，开箱即可直连使用 AI 分析助手。
+FTA/ETA 事故树编辑器（中文版）：一款功能完整的故障树分析（FTA）与事件树分析（ETA）桌面软件，支持概率计算、可视化树编辑、AI 分析助手与多种格式导出。本版内置 **DeepSeek、通义千问、智谱清言、Kimi** 等国内大模型与 **Ollama 本地**模型，开箱即可直连使用 AI 分析助手。
 
-本仓库为 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 的简体中文汉化版本，在原版基础上将界面与交互文本全面中文化，并新增 Windows 一键启动脚本与面向国内用户的 AI 服务商支持，方便中文用户直接下载使用。
+本仓库源于 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor)，在保留原版完整功能的基础上，新增 Windows 一键启动脚本与面向国内用户的 AI 服务商支持，界面与文档均为简体中文，方便中文用户直接下载使用。
 
 ## 相对原版的改进
 
 本版本在原作者 [Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor) 的基础上，主要做了以下几点增强：
 
-1. **全面简体中文化**：界面、菜单、按钮、提示与 AI 助手对话文案全部中文化，并新增 `启动FTA编辑器.bat` Windows 一键启动脚本，方便中文用户直接下载使用。
+1. **界面为简体中文**：界面、菜单、按钮、提示与 AI 助手对话文案全部为简体中文，并新增 `启动FTA编辑器.bat` Windows 一键启动脚本，方便中文用户直接下载使用。
 2. **扩展 AI 服务商支持**：在原有 OpenAI / Claude / Gemini 之外，新增 **DeepSeek、通义千问、智谱清言、Kimi** 与 **Ollama 本地** 5 家国内 / 本地服务商（走 OpenAI 兼容接口、复用现有 `openai` SDK，无需新增依赖，默认模型已更新至各厂商最新版）。
 
-> 以上为「界面汉化 + 功能扩展」，未改动原版核心的 FTA / ETA 算法与逻辑，遵循 BSD-2-Clause 协议。
+> 本项目为界面改良 + 功能扩展，未改动原版核心的 FTA / ETA 算法与逻辑，遵循 BSD-2-Clause 协议。
 
 ## 功能特性
 
@@ -112,7 +112,7 @@ core.export_to_excel("output.xlsx")
 ```
 FTA_Editor_Chinese/
 ├── src/                          # 源代码
-│   ├── FTA_Editor_UI.py         # 图形界面（含 AI 对话，已汉化）
+│   ├── FTA_Editor_UI.py         # 图形界面（含 AI 对话）
 │   ├── FTA_Editor_core.py       # 核心业务逻辑
 │   ├── AI_agent_handler.py      # AI 智能体与 API 处理
 │   └── json_viewer.py           # 图形渲染器
@@ -188,7 +188,7 @@ python -m pytest tests/
 本项目基于 **BSD-2-Clause** 协议开源，版权归原作者 makkiblog.com 所有。
 
 - 原仓库：[Gertrud-Violett/FTA_Editor](https://github.com/Gertrud-Violett/FTA_Editor)
-- 本中文版在原版基础上进行界面与文档的简体中文化，并新增国内 / 本地 AI 服务商支持，未改动核心算法与功能逻辑
+- 本中文版在原版基础上将界面与文档调整为简体中文，并新增国内 / 本地 AI 服务商支持，未改动核心算法与功能逻辑
 - 使用、修改、再分发请遵守 [LICENSE](LICENSE) 中的条款
 
 ## 支持

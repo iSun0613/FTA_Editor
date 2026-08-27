@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [中文版] - 2026-08-27（文档全面汉化、移除 Microsoft Copilot）
+## [中文版] - 2026-08-27（文档全面完善、移除 Microsoft Copilot）
 
 ### Removed
 - 移除 Microsoft Copilot / Azure OpenAI / GitHub Copilot 服务商支持（src/ai_providers.py），并删除 Microsoft Copilot 配置文档
@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [中文版] - 2026-08-27
 
 ### Added
-- 界面与文档全面简体中文化（src/FTA_Editor_UI.py、README.md、QUICKSTART.md）
+- 界面与文档全面提供简体中文版本（src/FTA_Editor_UI.py、README.md、QUICKSTART.md）
 - 新增 Windows 一键启动脚本 启动FTA编辑器.bat
 - 扩展 AI 服务商支持（src/ai_providers.py）：新增 DeepSeek、通义千问(DashScope)、智谱清言(GLM)、Kimi(月之暗面)、Ollama 本地，均走 OpenAI 兼容接口、无需新增依赖
 - 未改动原版核心 FTA/ETA 算法，遵循 BSD-2-Clause 协议
