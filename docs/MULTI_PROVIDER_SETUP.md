@@ -2,7 +2,7 @@
 
 FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（DeepSeek、通义千问、智谱清言、Kimi、Ollama 本地）与国际服务商（OpenAI、Anthropic Claude、Google Gemini、GitHub Copilot）。本指南帮助你选择并配置最适合自己的方案。
 
-> **国内用户建议优先使用下方的国内 / 本地服务商**：端点与默认模型已由程序内置，无需科学上网即可直连使用。
+> **国内用户建议优先使用下方的国内 / 本地服务商**：端点与默认模型已由程序内置，开箱即可直连使用。
 
 ---
 
@@ -125,7 +125,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 
 ## 国际服务商（备选）
 
-> 国内用户建议优先使用上方国内服务商；这些境外平台访问可能受限，注册与支付需使用境外网络。
+> 国内用户可优先使用上方国内服务商；下方国际服务商可按需选用。
 
 ### 1. Google Gemini（适合预算敏感用户）
 
@@ -141,7 +141,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 
 **配置步骤：**
 
-1. 前往 [Google AI Studio](https://aistudio.google.com/apikey)（境外平台，访问可能受限）
+1. 前往 [Google AI Studio](https://aistudio.google.com/apikey)
 2. 点击 **Create API Key（创建 API 密钥）**
 3. 选择或新建你的 Google Cloud 项目
 4. 复制生成的 API 密钥
@@ -175,7 +175,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 
 **配置步骤：**
 
-1. 前往 [Anthropic Console](https://console.anthropic.com/)（境外平台，访问可能受限）
+1. 前往 [Anthropic Console](https://console.anthropic.com/)
 2. 注册或登录账号
 3. 在侧边栏进入 **API Keys**
 4. 点击 **Create Key**
@@ -210,7 +210,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 
 **配置步骤：**
 
-1. 前往 [OpenAI Platform](https://platform.openai.com/)（境外平台，访问可能受限）
+1. 前往 [OpenAI Platform](https://platform.openai.com/)
 2. 注册或登录
 3. 进入 **Dashboard**（控制台）→ **API keys**
 4. 点击 **Create new secret key（创建新的密钥）**
@@ -244,7 +244,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 **配置步骤：**
 
 1. 获取 GitHub Personal Access Token（个人访问令牌）：
-   - 前往 https://github.com/settings/tokens （境外平台，访问可能受限）
+   - 前往 https://github.com/settings/tokens
    - 点击 **Generate new token (classic)**
    - 勾选 ✅ `read:user` 作用域
    - 复制该 token
@@ -268,7 +268,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 | **智谱清言** | 国内 | 按官方政策 | `glm-5.3` / `glm-5.3-flash` | 均衡通用 |
 | **Kimi** | 国内 | 按官方政策 | `kimi-k3` / `kimi-k2.6` | 长文本 / 推理强 |
 | **Ollama 本地** | 本地 | 免费（免密钥） | `qwen3:8b` / `llama3.3:70b` | 离线 / 隐私 |
-| Google Gemini | 国际 | ✅ 免费额度 | 下拉选择 | 访问可能受限 |
+| Google Gemini | 国际 | ✅ 免费额度 | 下拉选择 | 有免费额度 |
 | Anthropic Claude | 国际 | ❌ | 下拉选择 | 境外支付 |
 | OpenAI | 国际 | ❌ | 下拉选择 | 境外支付 |
 | GitHub Copilot | 国际 | ❌（订阅制） | 账号内可选 | 订阅制 |
@@ -412,7 +412,7 @@ FTA Editor 现支持**国内外多家 AI 服务商**：国内/本地服务商（
 - **Kimi**：https://platform.moonshot.cn
 - **Ollama**：https://ollama.com/
 
-**国际服务商（访问可能受限）：**
+**国际服务商：**
 - **Google Gemini**：https://ai.google.dev
 - **Anthropic Claude**：https://www.anthropic.com/
 - **OpenAI**：https://openai.com/

@@ -160,7 +160,6 @@ AI 助手通过兼容 OpenAI 的 API，为你的故障树提供智能分析与�
 - Ollama 适用于本地部署，无需任何 API 密钥，且数据不出本机；首次使用前需在终端执行如 `ollama pull qwen3:8b` 拉取模型。
 
 **国际服务商（备选）**：OpenAI、Anthropic Claude、Google Gemini、Microsoft Copilot。
-其中 Gemini / OpenAI / Claude 对国内访问可能受限，建议国内用户优先选择上方的国内服务商。
 
 ### 设置（Setup）
 
@@ -173,7 +172,7 @@ AI 助手通过兼容 OpenAI 的 API，为你的故障树提供智能分析与�
 
 > **安全提示**：凭证会保存在本机本地路径 `~/.fta_editor/ai_credentials.json`，绝不会写入代码仓库。
 
-> **获取 API 密钥**：国内用户建议优先使用上方国内服务商平台开通并获取密钥（DeepSeek / 通义千问 / 智谱清言 / Kimi，见上表）；如确需使用 Gemini / OpenAI / Claude 等国际服务，其境外申请链接对国内访问可能受限，请在网络畅通时访问。
+> **获取 API 密钥**：国内用户建议优先使用上方国内服务商平台开通并获取密钥（DeepSeek / 通义千问 / 智谱清言 / Kimi，见上表）。
 
 ### 功能（Features）
 
